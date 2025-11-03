@@ -21,10 +21,14 @@ model Client {
   id           Int      @id @default(autoincrement())
   name         String
   email        String   @unique
-  phone        String?
-  status       String?
-  consultant   User?    @relation("ConsultantClients", fields: [consultantId], references: [id])
-  consultantId Int?
+  phone        String
+  cpf          String
+  age          Int
+  address      String
+  status       String
+  consultant   User     @relation("ConsultantClients", fields: [consultantId], references: [id])
+  consultantId Int
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
+
