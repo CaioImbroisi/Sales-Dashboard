@@ -1,30 +1,40 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
 model User {
-  id         Int      @id @default(autoincrement())
-  name       String
-  email      String   @unique
-  role       String   @default("CONSULTANT")
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  clients    Client[] @relation("ConsultantClients")
+  id          String      @id @default(cuid())
+  nome        String
+  email       String      @unique
+  telefone    String
+  cpf         String      @unique
+  idade       Int
+  tipoUsuario String      // manteremos a validação no Zod
+  cep         String
+  estado      String
+  endereco    String
+  complemento String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  clients     Client[]
 }
 
 model Client {
-  id           Int      @id @default(autoincrement())
+  id           Int   @id @default(autoincrement())
   name         String
   email        String   @unique
-  phone        String?
-  status       String?
-  consultant   User?    @relation("ConsultantClients", fields: [consultantId], references: [id])
-  consultantId Int?
+  phone        String
+  cpf          String   @unique
+  age          Int
+  address      String
+  status       String
+  consultant   User     @relation(fields: [consultantId], references: [id])
+  consultantId String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
