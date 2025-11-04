@@ -3,27 +3,27 @@ export default function ClientTable({ clients }) {
     <table className="w-full border-collapse border">
       <thead>
         <tr>
-          <th className="border px-2 py-1">Nome</th>
-          <th className="border px-2 py-1">E-mail</th>
-          <th className="border px-2 py-1">Telefone</th>
-          <th className="border px-2 py-1">CPF</th>
-          <th className="border px-2 py-1">Idade</th>
-          <th className="border px-2 py-1">Endereço</th>
-          <th className="border px-2 py-1">Criado em</th>
-          <th className="border px-2 py-1">Atualizado em</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Nome</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">E-mail</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Telefone</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">CPF</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Idade</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Endereço</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Criado em</th>
+          <th className="text-left bg-[#131313] border px-2 py-1 text-xs md:text-sm">Atualizado em</th>
         </tr>
       </thead>
       <tbody>
         {clients.map(client => (
           <tr key={client.id}>
-            <td className="border px-2 py-1">{client.name}</td>
-            <td className="border px-2 py-1">{client.email}</td>
-            <td className="border px-2 py-1">{client.phone}</td>
-            <td className="border px-2 py-1">{client.cpf}</td>
-            <td className="border px-2 py-1">{client.age}</td>
-            <td className="border px-2 py-1">{client.address}</td>
-            <td className="border px-2 py-1">{new Date(client.createdAt).toLocaleDateString()}</td>
-            <td className="border px-2 py-1">{new Date(client.updatedAt).toLocaleDateString()}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.name}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.email}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.phone}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.cpf}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.age}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{client.address}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{new Date(client.createdAt).toLocaleDateString()}</td>
+            <td className="bg-[#222729] border px-2 py-1 text-xs md:text-sm">{new Date(client.updatedAt).toLocaleDateString()}</td>
           </tr>
         ))}
       </tbody>

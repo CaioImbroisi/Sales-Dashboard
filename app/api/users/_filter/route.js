@@ -5,13 +5,11 @@ export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url)
 
-    // Pegar filtros da query
     const name = searchParams.get('name') || undefined
     const email = searchParams.get('email') || undefined
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
 
-    // Montar filtro dinamicamente
     const where = {}
     if (name) where.name = { contains: name, mode: 'insensitive' }
     if (email) where.email = { contains: email, mode: 'insensitive' }
@@ -23,7 +21,6 @@ export async function GET(req) {
       }
     }
 
-    // Buscar usuários
     const users = await prisma.user.findMany({
       where,
       include: { clients: true },
