@@ -1,5 +1,7 @@
 ## Sobre
 
+Feito com Next.JS e Prisma
+
 Esse APP lista Consultores e Clientes anexados aos consultores em uma tabela com filtros.
 
 Algumas funcionalidades estão com bugs ou ainda não funcionam, são elas:
